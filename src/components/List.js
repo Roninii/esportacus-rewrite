@@ -1,14 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import { esportacus } from "../utils/api";
-import Loading from "./Loading";
+import { esportacus } from '../utils/api';
+import Loading from './Loading';
+import Grid from './Grid';
+import Card from './Card';
 
 export default class List extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      list: null
+      list: null,
     };
   }
 
@@ -24,17 +26,13 @@ export default class List extends React.Component {
     const { type } = this.props;
 
     return (
-      <div>
+      <Grid>
         {list ? (
-          <ul>
-            {list.map(item => (
-              <li key={item.id}>{item.name}</li>
-            ))}
-          </ul>
+          list.map((item, i) => <Card key={item.id || i}>{item.name}</Card>)
         ) : (
           <Loading text={`Fetching ${type}`} />
         )}
-      </div>
+      </Grid>
     );
   }
 }

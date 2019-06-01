@@ -1,13 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import "./styles.css";
-import Teams from "./components/Teams";
-import Players from "./components/Players";
-import Leagues from "./components/Leagues";
-import Home from "./components/Home";
-import Nav from "./components/Nav";
+import './styles.css';
+import Teams from './components/Teams';
+import Players from './components/Players';
+import Leagues from './components/Leagues';
+import Home from './components/Home';
+import Nav from './components/Nav';
+import Games from './components/Games';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Nav />
 
         <Route exact path="/" component={Home} />
+        <Route path="/games" component={Games} />
         <Route path="/teams" component={Teams} />
         <Route path="/players" component={Players} />
         <Route path="/leagues" component={Leagues} />
@@ -24,5 +26,5 @@ function App() {
   );
 }
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
