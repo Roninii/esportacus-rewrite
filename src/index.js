@@ -8,7 +8,6 @@ import Players from './components/Players';
 import Leagues from './components/Leagues';
 import Home from './components/Home';
 import Nav from './components/Nav';
-import Games from './components/Games';
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
         <Nav />
 
         <Route exact path="/" component={Home} />
-        <Route path="/games" component={Games} />
         <Route path="/teams" component={Teams} />
         <Route path="/players" component={Players} />
         <Route path="/leagues" component={Leagues} />

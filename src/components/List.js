@@ -2,7 +2,7 @@ import React from 'react';
 
 import { esportacus } from '../utils/api';
 import Loading from './Loading';
-import Grid from './Grid';
+import GridView from './GridView';
 import Card from './Card';
 
 export default class List extends React.Component {
@@ -10,7 +10,7 @@ export default class List extends React.Component {
     super(props);
 
     this.state = {
-      list: null,
+      list: null
     };
   }
 
@@ -26,13 +26,13 @@ export default class List extends React.Component {
     const { type } = this.props;
 
     return (
-      <Grid>
+      <GridView>
         {list ? (
           list.map((item, i) => <Card key={item.id || i}>{item.name}</Card>)
         ) : (
           <Loading text={`Fetching ${type}`} />
         )}
-      </Grid>
+      </GridView>
     );
   }
 }
