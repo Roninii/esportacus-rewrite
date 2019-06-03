@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const nav = css`
   background: var(--black-light);
-  padding: 1rem;
+  padding: 0.5rem;
 `;
 
 const navList = css`
@@ -26,7 +26,7 @@ const navLink = css`
 `;
 
 const active = {
-  color: `#0084ff`,
+  color: `#00aef0`,
   textDecoration: `underline`
 };
 

@@ -3,14 +3,15 @@ import styled from '@emotion/styled';
 import Typed from 'typed.js';
 
 import heroBg from '../assets/bg.jpg';
-import bgPattern from '../assets/bg-pattern.png';
+import logo from '../assets/helmet.svg';
+import Info from './Info';
 
 const Hero = styled.div`
   height: 90vh;
   background: linear-gradient(
       to right,
-      hsla(0, 0%, 7.06%, 80%),
-      hsla(0, 0%, 7.06%, 80%)
+      hsla(0, 0%, 7.06%, 85%),
+      hsla(0, 0%, 7.06%, 85%)
     ),
     url(${heroBg}) center center fixed;
   display: flex;
@@ -18,14 +19,28 @@ const Hero = styled.div`
   align-items: center;
 `;
 
-const HeroIntro = styled.div`
-  font-size: 3rem;
+const HeroLogo = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
   font-weight: 400;
+  letter-spacing: 0.5rem;
+  padding: 3rem;
+
+  &:after {
+    position: absolute;
+    bottom: 0;
+    content: '';
+    height: 5px;
+    width: 75%;
+    border-bottom: 1px solid var(--primary);
+  }
 `;
 
-const About = styled.div`
-  height: 100vh;
-  background: url(${bgPattern});
+const HeroIntro = styled.p`
+  font-size: 2.5rem;
+  font-weight: 400;
 `;
 
 export default class Home extends React.Component {
@@ -54,10 +69,16 @@ export default class Home extends React.Component {
       <main>
         <Hero>
           <header>
+            <div>
+              <HeroLogo style={{ position: 'relative' }}>
+                <img src={logo} alt="logo" />
+                eSportacus
+              </HeroLogo>
+            </div>
             <HeroIntro>
               Track your favorite&nbsp;
               <span
-                style={{ whiteSpace: 'pre', color: 'var(--blue)' }}
+                style={{ whiteSpace: 'pre', color: 'var(--primary)' }}
                 ref={(el) => {
                   this.el = el;
                 }}
@@ -65,7 +86,7 @@ export default class Home extends React.Component {
             </HeroIntro>
           </header>
         </Hero>
-        <About />
+        <Info />
       </main>
     );
   }
