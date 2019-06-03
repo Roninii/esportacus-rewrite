@@ -14,6 +14,7 @@ const Hero = styled.div`
       hsla(0, 0%, 7.06%, 85%)
     ),
     url(${heroBg}) center center fixed;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +24,7 @@ const HeroLogo = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 400;
   letter-spacing: 0.5rem;
   padding: 3rem;
@@ -39,7 +40,7 @@ const HeroLogo = styled.span`
 `;
 
 const HeroIntro = styled.p`
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 400;
 `;
 
@@ -54,7 +55,7 @@ export default class Home extends React.Component {
       startDelay: 500,
       backDelay: 2000
     };
-    // this.el refers to the <span> in the render() method
+    // this.el refers to the <span> in the render() method, used for Typed package
     this.typed = new Typed(this.el, options);
   }
 
@@ -72,7 +73,7 @@ export default class Home extends React.Component {
             <div>
               <HeroLogo style={{ position: 'relative' }}>
                 <img src={logo} alt="logo" />
-                eSportacus
+                ESPORTACUS
               </HeroLogo>
             </div>
             <HeroIntro>

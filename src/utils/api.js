@@ -1,13 +1,23 @@
+import lol from '../assets/lol.jpg';
+import overwatch from '../assets/overwatch.png';
+import pubg from '../assets/pubg.png';
+import dota2 from '../assets/dota2.png';
+import csgo from '../assets/csgo.jpg';
+
 export const esportacus = {
   sec: `?token=rzHaDh7xA20vAeJw57j7-VK4Jq5BwrLMKlhQ5z79ouEE15DuhU8`,
   path: `https://api.pandascore.co`,
   corsAnywhere: `https://cors-anywhere.herokuapp.com/`,
   _games: [
-    { name: 'League of Legends', slug: 'lol' },
-    { name: 'Overwatch', slug: 'ow' },
-    { name: 'Dota 2', slug: 'dota2' },
-    { name: 'Counter-Strike: Global Offensive', slug: 'cs:go' },
-    { name: `PlayerUnknown's Battlegrounds`, slug: 'pubg' },
+    { name: 'League of Legends', slug: 'lol', image: `${lol}` },
+    { name: 'Overwatch', slug: 'ow', image: `${overwatch}` },
+    { name: 'Dota 2', slug: 'dota2', image: `${dota2}` },
+    {
+      name: 'Counter-Strike: Global Offensive',
+      slug: 'cs:go',
+      image: `${csgo}`
+    },
+    { name: `PlayerUnknown's Battlegrounds`, slug: 'pubg', image: `${pubg}` }
   ],
   sortList(list) {
     return list.sort((a, b) => {
@@ -26,14 +36,18 @@ export const esportacus = {
   },
 
   async leagues() {
-    const res = await fetch(`${this.corsAnywhere}${this.path}/leagues${this.sec}`);
+    const res = await fetch(
+      `${this.corsAnywhere}${this.path}/leagues${this.sec}`
+    );
     const leagues = await res.json();
 
     return leagues;
   },
 
   async teams() {
-    const res = await fetch(`${this.corsAnywhere}${this.path}/teams${this.sec}`);
+    const res = await fetch(
+      `${this.corsAnywhere}${this.path}/teams${this.sec}`
+    );
     const teams = await res.json();
     const sortedTeams = await this.sortList(teams);
 
@@ -41,10 +55,12 @@ export const esportacus = {
   },
 
   async players() {
-    const res = await fetch(`${this.corsAnywhere}${this.path}/players${this.sec}`);
+    const res = await fetch(
+      `${this.corsAnywhere}${this.path}/players${this.sec}`
+    );
     const players = await res.json();
     const sortedPlayers = await this.sortList(players);
 
     return sortedPlayers;
-  },
+  }
 };

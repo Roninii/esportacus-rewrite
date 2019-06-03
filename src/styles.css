@@ -20,4 +20,5 @@ body,
   text-align: center;
   background: var(--black);
   color: var(--white);
+  font-weight: 400;
 }
