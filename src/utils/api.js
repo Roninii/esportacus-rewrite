@@ -1,8 +1,8 @@
-import lol from '../assets/lol.jpg';
+import lol from '../assets/lol.png';
 import overwatch from '../assets/overwatch.png';
-import pubg from '../assets/pubg.png';
 import dota2 from '../assets/dota2.png';
-import csgo from '../assets/csgo.jpg';
+// import pubg from '../assets/pubg.png';
+// import csgo from '../assets/csgo.svg';
 
 export const esportacus = {
   sec: `?token=rzHaDh7xA20vAeJw57j7-VK4Jq5BwrLMKlhQ5z79ouEE15DuhU8`,
@@ -14,10 +14,9 @@ export const esportacus = {
     { name: 'Dota 2', slug: 'dota2', image: `${dota2}` },
     {
       name: 'Counter-Strike: Global Offensive',
-      slug: 'cs:go',
-      image: `${csgo}`
+      slug: 'cs:go'
     },
-    { name: `PlayerUnknown's Battlegrounds`, slug: 'pubg', image: `${pubg}` }
+    { name: `PlayerUnknown's Battlegrounds`, slug: 'pubg' }
   ],
   sortList(list) {
     return list.sort((a, b) => {

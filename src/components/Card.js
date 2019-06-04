@@ -7,7 +7,8 @@ const Card = ({
   height,
   margin,
   background,
-  borderRadius
+  borderRadius,
+  boxShadow
 }) => {
   return (
     <article
@@ -20,7 +21,7 @@ const Card = ({
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        box-shadow: 0 5px 5px var(--black-darkest);
+        box-shadow: ${boxShadow};
         background: url(${background}) center/cover no-repeat;
       `}
     >
@@ -34,8 +35,8 @@ Card.defaultProps = {
   height: '300px',
   background: 'var(--black-light)',
   margin: '1rem',
-  background: '',
-  borderRadius: '3px'
+  borderRadius: '3px',
+  boxShadow: '0 5px 5px var(--black-darkest)'
 };
 
 export default Card;

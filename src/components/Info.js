@@ -8,7 +8,6 @@ import { esportacus } from '../utils/api';
 
 const About = styled.section`
   height: 100vh;
-  width: 90vw;
   margin: 0 auto 2rem auto;
   display: flex;
   justify-content: center;
@@ -16,9 +15,8 @@ const About = styled.section`
 `;
 
 const AboutHeader = styled.header`
-  width: 100%;
+  width: 60%;
   font-size: 1.2rem;
-  text-transform: uppercase;
 `;
 
 export default class Info extends React.Component {
@@ -37,24 +35,34 @@ export default class Info extends React.Component {
     return (
       <About>
         <AboutHeader>
-          <h2>The most popular competitive games</h2>
+          <h2
+            css={css`
+              text-transform: uppercase;
+            `}
+          >
+            The most popular competitive games
+          </h2>
           <div
             css={css`
               display: flex;
               flex-wrap: wrap;
-              justify-content: space-evenly;
+              justify-content: center;
               margin-bottom: 2rem;
             `}
           >
-            {games.map((game) => (
-              <Card
-                width="300px"
-                height="300px"
-                margin="1rem 0"
-                borderRadius="50%"
-                background={game.image}
-              />
-            ))}
+            {games.map((game) => {
+              return (
+                game.image && (
+                  <Card
+                    width="150px"
+                    height="150px"
+                    margin="1rem"
+                    borderRadius="50%"
+                    background={game.image}
+                  />
+                )
+              );
+            })}
           </div>
         </AboutHeader>
       </About>
