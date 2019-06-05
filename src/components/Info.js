@@ -112,7 +112,7 @@ export default class Info extends React.Component {
                     data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
                   }
                 ]}
-                series={{ type: 'area' }}
+                series={{ type: 'line' }}
                 axes={[
                   { primary: true, type: 'linear', position: 'bottom' },
                   { type: 'linear', position: 'left' }
