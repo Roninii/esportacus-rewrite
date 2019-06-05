@@ -5,6 +5,10 @@ import dota2 from '../assets/dota2.png';
 // import csgo from '../assets/csgo.svg';
 
 export const esportacus = {
+  // yes this is a private api key in a public repo
+  // yes I plan to purge this and generate a new key in the future
+  // this setup is temporary until the basics are covered, then it will
+  // be migrated to aws and environment variables
   sec: `?token=rzHaDh7xA20vAeJw57j7-VK4Jq5BwrLMKlhQ5z79ouEE15DuhU8`,
   path: `https://api.pandascore.co`,
   corsAnywhere: `https://cors-anywhere.herokuapp.com/`,
