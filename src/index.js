@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './styles.css';
 import Teams from './components/Teams';
@@ -14,11 +14,13 @@ function App() {
     <Router>
       <div className="App">
         <Nav />
-
-        <Route exact path="/" component={Home} />
-        <Route path="/teams" component={Teams} />
-        <Route path="/players" component={Players} />
-        <Route path="/leagues" component={Leagues} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/teams" component={Teams} />
+          <Route path="/players" component={Players} />
+          <Route path="/leagues" component={Leagues} />
+          <Route render={() => <h1>Uh oh! That page doesn't exist... yet?</h1>} />
+        </Switch>
       </div>
     </Router>
   );
