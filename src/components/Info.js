@@ -2,9 +2,13 @@ import React from 'react';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import styled from '@emotion/styled';
+import { Chart } from 'react-charts';
 
-import Card from './Card';
 import { esportacus } from '../utils/api';
+import regions from '../assets/regions.jpg';
+import leagues from '../assets/leagues.jpg';
+import Card from './Card';
+import GridView from './GridView';
 
 const About = styled.section`
   height: 100vh;
@@ -15,7 +19,7 @@ const About = styled.section`
 `;
 
 const AboutHeader = styled.header`
-  width: 60%;
+  width: 100%;
   font-size: 1.2rem;
 `;
 
@@ -58,13 +62,79 @@ export default class Info extends React.Component {
                     height="150px"
                     margin="1rem"
                     borderRadius="50%"
-                    background={game.image}
+                    background={`url(${game.image}) center/cover`}
                   />
                 )
               );
             })}
           </div>
         </AboutHeader>
+        <GridView>
+          <div
+            css={css`
+              width: 100%;
+            `}
+          >
+            <h3
+              css={css`
+                text-transform: uppercase;
+              `}
+            >
+              Find teams from all regions
+            </h3>
+            <Card
+              background={`
+                linear-gradient(hsla(0, 0%, 7.06%, 45%), hsla(0, 0%, 7.06%, 45%)),url(${regions}) center/contain`}
+            />
+          </div>
+          <div
+            css={css`
+              width: 100%;
+            `}
+          >
+            <h3
+              css={css`
+                text-transform: uppercase;
+              `}
+            >
+              Track team and player trends
+            </h3>
+            <Card padding="3rem 1rem">
+              <Chart
+                dark
+                data={[
+                  {
+                    label: 'Series 1',
+                    data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
+                  },
+                  {
+                    label: 'Series 2',
+                    data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
+                  }
+                ]}
+                series={{ type: 'area' }}
+                axes={[
+                  { primary: true, type: 'linear', position: 'bottom' },
+                  { type: 'linear', position: 'left' }
+                ]}
+              />
+            </Card>
+          </div>
+          <div
+            css={css`
+              width: 100%;
+            `}
+          >
+            <h3
+              css={css`
+                text-transform: uppercase;
+              `}
+            >
+              Find the leagues your care about
+            </h3>
+            <Card background={`url(${leagues}) center/cover`} />
+          </div>
+        </GridView>
       </About>
     );
   }

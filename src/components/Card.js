@@ -6,6 +6,7 @@ const Card = ({
   width,
   height,
   margin,
+  padding,
   background,
   borderRadius,
   boxShadow
@@ -13,16 +14,18 @@ const Card = ({
   return (
     <article
       css={css`
+        position: relative;
         width: ${width};
         height: ${height};
         margin: ${margin};
+        padding: ${padding};
         border-radius: ${borderRadius};
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         box-shadow: ${boxShadow};
-        background: url(${background}) center/cover no-repeat;
+        background: ${background};
       `}
     >
       {children}
@@ -35,6 +38,7 @@ Card.defaultProps = {
   height: '300px',
   background: 'var(--black-light)',
   margin: '1rem',
+  padding: '0',
   borderRadius: '3px',
   boxShadow: '0 5px 5px var(--black-darkest)'
 };
