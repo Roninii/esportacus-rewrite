@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 /** @jsx jsx */
-import { css, jsx } from '@emotion/core';
-import styled from '@emotion/styled';
-import { Chart } from 'react-charts';
+import { css, jsx } from '@emotion/core'
+import styled from '@emotion/styled'
+import { Chart } from 'react-charts'
 
-import { esportacus } from '../utils/api';
-import regions from '../assets/regions.jpg';
-import leagues from '../assets/leagues.jpg';
-import Card from './Card';
-import GridView from './GridView';
+import { esportacus } from '../utils/api'
+import regions from '../assets/regions.jpg'
+import leagues from '../assets/leagues.jpg'
+import Card from './Card'
+import GridView from './GridView'
 
 const About = styled.section`
   height: 100vh;
@@ -16,25 +16,25 @@ const About = styled.section`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-`;
+`
 
 const AboutHeader = styled.header`
   width: 100%;
   font-size: 1.2rem;
-`;
+`
 
 export default class Info extends React.Component {
   state = {
-    games: []
-  };
+    games: [],
+  }
 
   async componentDidMount() {
-    const games = esportacus.games();
-    this.setState({ games });
+    const games = esportacus.games()
+    this.setState({ games })
   }
 
   render() {
-    const { games } = this.state;
+    const { games } = this.state
 
     return (
       <About>
@@ -58,14 +58,15 @@ export default class Info extends React.Component {
               return (
                 game.image && (
                   <Card
-                    width="150px"
-                    height="150px"
-                    margin="1rem"
-                    borderRadius="50%"
+                    key={game.name}
+                    width='150px'
+                    height='150px'
+                    margin='1rem'
+                    borderRadius='50%'
                     background={`url(${game.image}) center/cover`}
                   />
                 )
-              );
+              )
             })}
           </div>
         </AboutHeader>
@@ -99,23 +100,26 @@ export default class Info extends React.Component {
             >
               Track team and player trends
             </h3>
-            <Card padding="3rem 1rem">
+            <Card padding='1rem 2rem'>
               <Chart
+                css={css`
+                  max-width: 100%;
+                `}
                 dark
                 data={[
                   {
                     label: 'Series 1',
-                    data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
+                    data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]],
                   },
                   {
                     label: 'Series 2',
-                    data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
-                  }
+                    data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]],
+                  },
                 ]}
                 series={{ type: 'line' }}
                 axes={[
                   { primary: true, type: 'linear', position: 'bottom' },
-                  { type: 'linear', position: 'left' }
+                  { type: 'linear', position: 'left' },
                 ]}
               />
             </Card>
@@ -136,6 +140,6 @@ export default class Info extends React.Component {
           </div>
         </GridView>
       </About>
-    );
+    )
   }
 }
