@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import Typed from 'typed.js';
+import React from 'react'
+import styled from '@emotion/styled'
+import Typed from 'typed.js'
 
-import heroBg from '../assets/bg.jpg';
-import logo from '../assets/helmet.svg';
-import Info from './Info';
+import heroBg from '../assets/bg.jpg'
+import logo from '../assets/helmet.svg'
+import Info from './Info'
 
 const Hero = styled.div`
   height: 90vh;
@@ -14,20 +14,21 @@ const Hero = styled.div`
       hsla(0, 0%, 7.06%, 85%)
     ),
     url(${heroBg}) center center fixed;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+
+  @media screen and (min-width: 600px) {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+  }
+`
 
 const HeroLogo = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4rem;
   font-weight: 400;
-  letter-spacing: 0.5rem;
-  padding: 3rem;
+  padding: 3rem 0;
 
   &:after {
     position: absolute;
@@ -37,12 +38,21 @@ const HeroLogo = styled.span`
     width: 75%;
     border-bottom: 1px solid var(--primary);
   }
-`;
+
+  @media screen and (min-width: 400px) {
+    font-size: 3rem;
+  }
+
+  @media screen and (min-width: 600px) {
+    letter-spacing: 0.5rem;
+    font-size: 4rem;
+  }
+`
 
 const HeroIntro = styled.p`
   font-size: 2rem;
   font-weight: 400;
-`;
+`
 
 export default class Home extends React.Component {
   componentDidMount() {
@@ -53,16 +63,16 @@ export default class Home extends React.Component {
       typeSpeed: 50,
       backSpeed: 50,
       startDelay: 500,
-      backDelay: 2000
-    };
+      backDelay: 2000,
+    }
     // this.el refers to the <span> in the render() method, used for Typed package
-    this.typed = new Typed(this.el, options);
+    this.typed = new Typed(this.el, options)
   }
 
   componentWillUnmount() {
     // Make sure to destroy Typed instance on unmounting
     // to prevent memory leaks
-    this.typed.destroy();
+    this.typed.destroy()
   }
 
   render() {
@@ -72,7 +82,7 @@ export default class Home extends React.Component {
           <header>
             <div>
               <HeroLogo style={{ position: 'relative' }}>
-                <img src={logo} alt="logo" />
+                <img src={logo} alt='logo' />
                 ESPORTACUS
               </HeroLogo>
             </div>
@@ -81,7 +91,7 @@ export default class Home extends React.Component {
               <span
                 style={{ whiteSpace: 'pre', color: 'var(--primary)' }}
                 ref={(el) => {
-                  this.el = el;
+                  this.el = el
                 }}
               />
             </HeroIntro>
@@ -89,6 +99,6 @@ export default class Home extends React.Component {
         </Hero>
         <Info />
       </main>
-    );
+    )
   }
 }

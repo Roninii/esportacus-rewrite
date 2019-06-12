@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import { css, jsx } from '@emotion/core'
 
 const Card = ({
   children,
@@ -9,16 +9,16 @@ const Card = ({
   padding,
   background,
   borderRadius,
-  boxShadow
+  boxShadow,
 }) => {
   return (
     <article
       css={css`
         position: relative;
         width: ${width};
-        height: ${height};
         margin: ${margin};
         padding: ${padding};
+        height: ${height};
         border-radius: ${borderRadius};
         display: flex;
         flex-direction: column;
@@ -26,12 +26,17 @@ const Card = ({
         align-items: center;
         box-shadow: ${boxShadow};
         background: ${background};
+
+        @media screen and (max-width: 500px) {
+          margin: 0;
+          padding: 0;
+        }
       `}
     >
       {children}
     </article>
-  );
-};
+  )
+}
 
 Card.defaultProps = {
   width: '100%',
@@ -40,7 +45,7 @@ Card.defaultProps = {
   margin: '1rem',
   padding: '0',
   borderRadius: '3px',
-  boxShadow: '0 5px 5px var(--black-darkest)'
-};
+  boxShadow: '0 5px 5px var(--black-darkest)',
+}
 
-export default Card;
+export default Card
