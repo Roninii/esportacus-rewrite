@@ -11,6 +11,7 @@ const Team = styled.div`
 
 const TeamLogo = styled.img`
   max-width: 100px;
+  border-radius: 1rem;
 `
 
 export default class List extends React.Component {
