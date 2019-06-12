@@ -134,7 +134,7 @@ export default class Info extends React.Component {
                 text-transform: uppercase;
               `}
             >
-              Find the leagues your care about
+              The leagues your care about
             </h3>
             <Card background={`url(${leagues}) center/cover`} />
           </div>
